@@ -1,17 +1,17 @@
-import { View, Text, Pressable, StyleSheet } from "react-native"
+import { View, Text, Pressable, StyleSheet, Platform } from "react-native"
 import React from "react"
 
 const FlatButton = ({ children, onPress }) => {
   return (
     <View style={styles.container}>
       <Pressable
-        // pressed prop'u, butona basıldığında artık opaklık ekleyecektir her iki platformdada fakat biz androidde bunu istemiyoruz
         style={({ pressed }) => [
           styles.buttonContainer,
           pressed && styles.pressed
         ]}
         onPress={onPress}
         android_ripple={{ color: "#C75406" }}
+        android_disableSound // android'de butona tıklandığında ses çıkmasını engeller
       >
         {/* tüm stil özellikleri Text'e uygulanmadığı için View kullanıldı */}
         <Text style={styles.textContainer}>{children}</Text>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   pressed: {
-    opacity: 0.7
+    opacity: Platform.OS === "ios" ? 0.7 : 1 // sadece ios'ta opaklık ekler
   }
 })
 
