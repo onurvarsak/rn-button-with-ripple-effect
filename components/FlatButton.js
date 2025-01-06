@@ -1,11 +1,14 @@
-import { View, Text } from "react-native"
+import { View, Text, Pressable } from "react-native"
 import React from "react"
 
-const FlatButton = ({ children }) => {
+const FlatButton = ({ children, onPress }) => {
   return (
-    <View>
-      <Text>{children}</Text>
-    </View>
+    <Pressable onPress={onPress}>
+      <View>
+        {/* tüm stil özellikleri Text'e uygulanmadığı için View kullanıldı */}
+        <Text>{children}</Text>
+      </View>
+    </Pressable>
   )
 }
 

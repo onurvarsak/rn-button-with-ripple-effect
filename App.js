@@ -3,9 +3,13 @@ import { StyleSheet, Text, View } from "react-native"
 import FlatButton from "./components/FlatButton"
 
 export default function App() {
+  const handlePress = () => {
+    console.log("Button pressed")
+  }
+
   return (
     <View style={styles.container}>
-      <FlatButton>Press me</FlatButton>
+      <FlatButton onPress={handlePress}>Press me</FlatButton>
       <StatusBar style='auto' />
     </View>
   )
