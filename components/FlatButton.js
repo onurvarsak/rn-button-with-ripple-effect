@@ -9,27 +9,38 @@ const FlatButton = ({
   rippleColor = "#C75406"
 }) => {
   return (
-    <View style={styles.container}>
-      <Pressable
-        style={({ pressed }) => [
-          styles.buttonContainer,
-          pressed && styles.pressed,
-          { backgroundColor: bgColor }
-        ]}
-        onPress={onPress}
-        android_ripple={{ color: rippleColor }}
-        android_disableSound // android'de butona tıklandığında ses çıkmasını engeller
-      >
-        {/* tüm stil özellikleri Text'e uygulanmadığı için View kullanıldı */}
-        <Text style={[styles.textContainer, { color: textColor }]}>
-          {children}
-        </Text>
-      </Pressable>
+    <View style={styles.shadowForIos}>
+      <View style={styles.container}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.buttonContainer,
+            pressed && styles.pressed,
+            { backgroundColor: bgColor }
+          ]}
+          onPress={onPress}
+          android_ripple={{ color: rippleColor }}
+          android_disableSound // android'de butona tıklandığında ses çıkmasını engeller
+        >
+          {/* tüm stil özellikleri Text'e uygulanmadığı için View kullanıldı */}
+          <Text style={[styles.textContainer, { color: textColor }]}>
+            {children}
+          </Text>
+        </Pressable>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  shadowForIos: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 2,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4
+  },
   container: {
     borderRadius: 5,
     overflow: "hidden", // container'ın içindeki elementlerin container'ın dışına taşmasını engeller, ripple olduğunda border kısmı düz oluyordu onu engelleyecek
