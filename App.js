@@ -9,7 +9,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <FlatButton onPress={handlePress}>Press me</FlatButton>
+      <View style={styles.buttons}>
+        <FlatButton onPress={handlePress}>Press me</FlatButton>
+      </View>
       <StatusBar style='auto' />
     </View>
   )
@@ -19,7 +21,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    alignItems: "center", // ios'ta içindeki element'lerin width değeri 100% ise yatayda merkezler ve element'lerin içeriği kadar değer yapar bu 100% değerini
     justifyContent: "center"
+  },
+  buttons: {
+    width: "80%"
   }
 })

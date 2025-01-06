@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10, // container'ın üst ve alt kenarlarından 10 birim içeriye boşluk ekler
     backgroundColor: "#FF6700",
     borderRadius: 5,
-    elevation: 3 // android'de gölgelendirme efekti ekler
+    elevation: 3, // android'de gölgelendirme efekti ekler,
+    width: "100%"
   }
 })
 
