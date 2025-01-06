@@ -1,20 +1,29 @@
 import { View, Text, Pressable, StyleSheet, Platform } from "react-native"
 import React from "react"
 
-const FlatButton = ({ children, onPress }) => {
+const FlatButton = ({
+  children,
+  onPress,
+  bgColor,
+  textColor,
+  rippleColor = "#C75406"
+}) => {
   return (
     <View style={styles.container}>
       <Pressable
         style={({ pressed }) => [
           styles.buttonContainer,
-          pressed && styles.pressed
+          pressed && styles.pressed,
+          { backgroundColor: bgColor }
         ]}
         onPress={onPress}
-        android_ripple={{ color: "#C75406" }}
+        android_ripple={{ color: rippleColor }}
         android_disableSound // android'de butona tıklandığında ses çıkmasını engeller
       >
         {/* tüm stil özellikleri Text'e uygulanmadığı için View kullanıldı */}
-        <Text style={styles.textContainer}>{children}</Text>
+        <Text style={[styles.textContainer, { color: textColor }]}>
+          {children}
+        </Text>
       </Pressable>
     </View>
   )

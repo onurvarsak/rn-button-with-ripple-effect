@@ -11,6 +11,14 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.buttons}>
         <FlatButton onPress={handlePress}>Press me</FlatButton>
+        <FlatButton
+          onPress={handlePress}
+          bgColor={"#EBEBEB"}
+          rippleColor='#B1B1B1'
+          textColor={"black"}
+        >
+          Press me
+        </FlatButton>
       </View>
       <StatusBar style='auto' />
     </View>
