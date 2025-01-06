@@ -3,27 +3,30 @@ import React from "react"
 
 const FlatButton = ({ children, onPress }) => {
   return (
-    <Pressable onPress={onPress} android_ripple={{ color: "#C75406" }}>
-      {/*
-        android_ripple={{ color: "#C75406" }} -> android'de butona tıklandığında gölgelendirme efekti ekler
-        fakat bu efek bu aşamada sadece dışarıya bir gölgelendirme efekti ekler hatta butona tıklandığında
-        container'ın border'ı gider bunu gidermek için se tüm jsx'i bir View içine alıp ona style vermek gerekir
-    */}
-      <View style={styles.buttonContainer}>
+    <View style={styles.container}>
+      <Pressable
+        style={styles.buttonContainer}
+        onPress={onPress}
+        android_ripple={{ color: "#C75406" }}
+      >
         {/* tüm stil özellikleri Text'e uygulanmadığı için View kullanıldı */}
         <Text style={styles.textContainer}>{children}</Text>
-      </View>
-    </Pressable>
+      </Pressable>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 5,
+    overflow: "hidden", // container'ın içindeki elementlerin container'ın dışına taşmasını engeller
+    elevation: 3 // android'de gölgelendirme efekti ekler,
+  },
+
   buttonContainer: {
     paddingHorizontal: 16, // container'ın sağ ve sol kenarlarından 16 birim içeriye boşluk ekler
     paddingVertical: 10, // container'ın üst ve alt kenarlarından 10 birim içeriye boşluk ekler
     backgroundColor: "#FF6700",
-    borderRadius: 5,
-    elevation: 3, // android'de gölgelendirme efekti ekler,
     width: "100%"
   },
   textContainer: {
