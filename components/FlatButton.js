@@ -4,8 +4,8 @@ import React from "react"
 const FlatButton = ({
   children,
   onPress,
-  bgColor,
-  textColor,
+  bgColor = "#FF6700",
+  textColor = "#fff",
   rippleColor = "#C75406"
 }) => {
   return (
@@ -38,11 +38,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     paddingHorizontal: 16, // container'ın sağ ve sol kenarlarından 16 birim içeriye boşluk ekler
     paddingVertical: 10, // container'ın üst ve alt kenarlarından 10 birim içeriye boşluk ekler
-    backgroundColor: "#FF6700",
     width: "100%"
   },
   textContainer: {
-    color: "#fff",
     fontWeight: "bold",
     textTransform: "uppercase",
     fontSize: 16,

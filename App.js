@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   buttons: {
-    width: "80%"
+    width: "80%",
+    gap: 10
   }
 })
